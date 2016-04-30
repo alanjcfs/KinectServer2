@@ -21,15 +21,9 @@
     <ClCompile Include="KinectDevice.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="KinectBody.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="KinectDevice.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="KinectBody.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
