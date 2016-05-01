@@ -2,6 +2,7 @@
 #include <vector>
 
 #include "KinectDevice.h"
+#include "sio_client.h"
 
 int main(int argc, char *argv[]) {
     KinectDevice *device = new KinectDevice();
