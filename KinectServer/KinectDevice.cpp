@@ -7,8 +7,8 @@ KinectDevice::KinectDevice():
     isValid(false),
     elapsedTime(-1)
 {
-    auto validate = [this](HRESULT result) { 
-        this->isValid = result; 
+    auto validate = [this](int32_t result) {
+        this->isValid = result;
         if (FAILED(this->isValid)) {
             throw "Initializing Kinect device failed.";
         }
@@ -34,14 +34,14 @@ bool KinectDevice::isRunning() {
 
 std::vector<KinectBody> KinectDevice::capture() {
     IBodyFrame *bodyFrame = NULL;
-    HRESULT result = frameReader->AcquireLatestFrame(&bodyFrame);
+    int32_t result = frameReader->AcquireLatestFrame(&bodyFrame);
     auto kinectBodies = std::vector<KinectBody>();
 
     if (this->isRunning() && SUCCEEDED(result)) {
         IBody *bodies[BODY_COUNT] = { 0 };
-        HRESULT getBodies = bodyFrame->GetAndRefreshBodyData(BODY_COUNT, bodies);
+        int32_t getBodies = bodyFrame->GetAndRefreshBodyData(BODY_COUNT, bodies);
         if (SUCCEEDED(getBodies)) {
-            INT64 time = 0;
+            int64_t time = 0;
             Vector4 clip;
             bodyFrame->get_RelativeTime(&time);
             bodyFrame->get_FloorClipPlane(&clip);
@@ -52,7 +52,7 @@ std::vector<KinectBody> KinectDevice::capture() {
 
             for (int i = 0; i < BODY_COUNT; i++) {
                 IBody *body = bodies[i];
-                BOOLEAN isTracked = false;
+                uint8_t isTracked = false;
                 body->get_IsTracked(&isTracked);
                 if (isTracked) {
                     auto kinectBody = this->processBody(body, clip, time - elapsedTime);
@@ -69,7 +69,7 @@ std::vector<KinectBody> KinectDevice::capture() {
     return kinectBodies;
 }
 
-KinectBody KinectDevice::processBody(IBody *body, Vector4 clip, INT64 timestamp) {
+KinectBody KinectDevice::processBody(IBody *body, Vector4 clip, int64_t timestamp) {
     KinectBody kinectBody;
     kinectBody.timestamp = timestamp;
     kinectBody.clip = clip;

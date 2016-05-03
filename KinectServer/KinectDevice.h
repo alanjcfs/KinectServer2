@@ -3,8 +3,8 @@
 #include <vector>
 
 typedef struct {
-    UINT64 id;
-    INT64 timestamp;
+    uint64_t id;
+    int64_t timestamp;
     HandState leftHand, rightHand;
     TrackingConfidence leftHandConfidence, rightHandConfidence;
     Vector4 clip;
@@ -21,11 +21,11 @@ public:
     bool isRunning();
     std::vector<KinectBody> capture();
 private:
-    KinectBody processBody(IBody *, Vector4, INT64);
+    KinectBody processBody(IBody *, Vector4, int64_t);
     IKinectSensor *sensor;
     IBodyFrameReader *frameReader;
-    HRESULT isValid;
-    INT64 elapsedTime;
+    int32_t isValid;
+    int64_t elapsedTime;
 };
 
 template<class Interface>
