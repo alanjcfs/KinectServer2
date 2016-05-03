@@ -22,6 +22,8 @@ Make a static library:
 
 Move the resulting `boost.lib` to `KinectServer/lib`.
 
+Alternately, copy the resulting `libboost_*` libraries individually to `KinectServer/lib`.
+
 The current version of boost we are using is `1.60`.
 
 ## websocketpp
@@ -30,6 +32,10 @@ The current version of boost we are using is `1.60`.
 
 The current version of websocketpp we are using is `0.7.0`.
 
+## Protocol Buffers
+
+Install Protocol Buffers: see `https://github.com/google/protobuf/releases` for instructions. The current version of protoc we are using is `3.0.0-beta-2`. Note that we are using `syntax = "proto3"` and the experimental `--js_out` feature.
+
 ## Finale
 
-Make sure the include folders are set appropriately for both Boost and websocketpp in `KinectServer/KinectServer.vcxproj`.
+Make sure the include folders are set appropriately for both Boost and websocketpp in `KinectServer/KinectServer.vcxproj`. Modify the additional dependencies field if needed.

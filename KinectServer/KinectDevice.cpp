@@ -1,4 +1,5 @@
 #include "KinectDevice.h"
+#include "KinectBody.pb.h"
 
 KinectDevice::KinectDevice():
     sensor(NULL),
