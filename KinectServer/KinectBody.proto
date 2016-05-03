@@ -1,0 +1,89 @@
+package kinectserver;
+
+enum JointType {
+    SPINE_BASE = 1;
+    SPINE_MID = 2;
+    NECK = 3;
+    HEAD = 4;
+    SHOULDER_LEFT = 5;
+    ELBOW_LEFT = 6;
+    WRIST_LEFT = 7;
+    HAND_LEFT = 8;
+    SHOULDER_RIGHT = 9;
+    ELBOW_RIGHT = 10;
+    WRIST_RIGHT = 11;
+    HAND_RIGHT = 12;
+    HIP_LEFT = 13;
+    KNEE_LEFT = 14;
+    ANKLE_LEFT = 15;
+    FOOT_LEFT = 16;
+    HIP_RIGHT = 17;
+    KNEE_RIGHT = 18;
+    ANKLE_RIGHT = 19;
+    FOOT_RIGHT = 20;
+    SPINE_SHOULDER = 21;
+    HAND_TIP_LEFT = 22;
+    THUMB_LEFT = 23;
+    HAND_TIP_RIGHT = 24;
+    THUMB_RIGHT = 25;
+}
+
+message Vector4 {
+    required float x = 1;
+    required float y = 2;
+    required float z = 3;
+    required float w = 4;
+}
+
+message Joint {
+    required JointType type = 1;
+
+    message CameraSpacePoint {
+        required float x = 1;
+        required float y = 2;
+        required float z = 3;
+    }
+    required CameraSpacePoint position = 2;
+
+    enum TrackingState {
+        NOT_TRACKED = 0;
+        INFERRED = 1;
+        TRACKED = 2;
+    }
+    required TrackingState state = 4;
+}
+
+message JointOrientation {
+    required JointType type = 1;
+    required Vector4 orientation = 2;
+}
+
+message KinectBody {
+    required uint64 id = 1;
+    required int64 timestamp = 2;
+
+    enum HandState {
+        UNKNOWN = 0;
+        NOT_TRACKED = 1;
+        OPEN = 2;
+        CLOSED = 3;
+        LASSO = 4;
+    }
+    required HandState leftHand = 3;
+    required HandState rightHand = 4;
+
+    enum TrackingConfidence {
+        LOW = 0;
+        HIGH = 1;
+    }
+    required TrackingConfidence leftHandConfidence = 5;
+    required TrackingConfidence rightHandConfidence = 6;
+
+    required Vector4 clip = 7;
+    repeated Joint joints = 8;
+    repeated JointOrientation orientations = 9;
+}
+
+message KinectBodies {
+    repeated KinectBody body = 1;
+}
