@@ -49,13 +49,14 @@ std::vector<KinectBody> KinectDevice::capture() {
             if (this->elapsedTime == -1) {
                 this->elapsedTime = time;
             }
+            auto timestamp = time - elapsedTime;
 
             for (int i = 0; i < BODY_COUNT; i++) {
                 IBody *body = bodies[i];
                 uint8_t isTracked = false;
                 body->get_IsTracked(&isTracked);
                 if (isTracked) {
-                    auto kinectBody = this->processBody(body, clip, time - elapsedTime);
+                    auto kinectBody = this->processBody(body, clip, timestamp);
                     kinectBodies.push_back(kinectBody);
                 }
             }
