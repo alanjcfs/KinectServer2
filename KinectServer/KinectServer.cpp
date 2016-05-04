@@ -10,6 +10,8 @@ KinectServer::KinectServer()
     server.init_asio();
     server.set_open_handler(bind(&KinectServer::on_open, this, ::_1));
     server.set_close_handler(bind(&KinectServer::on_close, this, ::_1));
+	// disable websocket logging
+	server.clear_access_channels(websocketpp::log::alevel::all);
 }
 
 KinectServer::~KinectServer()
@@ -64,16 +66,18 @@ void KinectServer::process_users() {
 
 void KinectServer::process_data() {
     while (device->isRunning()) {
-        std::string testing("timestamps:");
+        std::string testing("timestamps");
         std::vector<KinectBody> bodies = device->capture();
         for (auto body = bodies.begin(); body < bodies.end(); body++) {
-            testing.append(" ");
+            testing.append(": ");
             testing.append(std::to_string((*body).timestamp));
         }
 
-        lock_guard<mutex> guard(connection_lock);
-        for (auto it = connections.begin(); it != connections.end(); ++it) {
-            server.send(*it, testing, websocketpp::frame::opcode::text);
+        if (!bodies.empty()) {
+            lock_guard<mutex> guard(connection_lock);
+            for (auto it = connections.begin(); it != connections.end(); ++it) {
+                server.send(*it, testing, websocketpp::frame::opcode::text);
+            }
         }
     }
 }
