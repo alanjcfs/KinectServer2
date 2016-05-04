@@ -2,7 +2,7 @@
 // source: KinectServer/KinectBody.proto
 
 #define INTERNAL_SUPPRESS_PROTOBUF_FIELD_DEPRECATION
-#include "KinectServer/KinectBody.pb.h"
+#include "KinectBody.pb.h"
 
 #include <algorithm>
 
