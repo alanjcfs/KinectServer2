@@ -1,7 +1,6 @@
 #pragma once
 
 #include "KinectDevice.h"
-#include "KinectBody.pb.h"
 
 class KinectSerializer {
  public:

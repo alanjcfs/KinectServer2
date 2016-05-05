@@ -24,7 +24,7 @@
     <ClCompile Include="KinectServer.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="KinectBody.pb.cc">
+    <ClCompile Include="KinectBody.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -38,7 +38,7 @@
     <ClInclude Include="KinectSerializer.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="KinectBody.pb.h">
+    <ClInclude Include="KinectBody.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

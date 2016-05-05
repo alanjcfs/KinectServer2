@@ -14,7 +14,7 @@ Install the Kinect 2.0 SDK. The current version is `v2.0_1409`.
 
 Compile boost with:
 
-    bjam install --prefix=. --with-thread --with-system --with-date_time --with-regex link=static runtime-link=shared threading=multi
+    bjam install --prefix=. --with-thread --with-system --with-date_time --with-regex link=static runtime-link=static threading=multi
 
 Make a static library:
 
@@ -22,7 +22,7 @@ Make a static library:
 
 Move the resulting `boost.lib` to `KinectServer/lib`.
 
-Alternately, copy the resulting `libboost_*` libraries individually to `KinectServer/lib`.
+Alternately, copy the resulting `libboost_*` libraries individually to `KinectServer/lib`. Note that you will need the multi-threaded static debug with ABI tags (`-mt-sgd-`) libraries.
 
 The current version of boost we are using is `1.60`.
 

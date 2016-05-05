@@ -2,6 +2,8 @@
 #include <Kinect.h>
 #include <vector>
 
+#include "KinectBody.h"
+
 typedef struct {
     uint64_t id;
     int64_t timestamp;
