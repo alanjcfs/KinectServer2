@@ -1,11 +1,12 @@
 import Ember from 'ember';
 import KinectBodyData from 'kinect-client/utils/kinect-body-data';
 
+const KinectOutput = ProtoBuf.loadJson(KinectBodyData).build('KinectBodies');
+
 export default Ember.Component.extend({
 
   socketService: Ember.inject.service('websockets'),
   socket: null,
-  decoder: null,
 
   willRender() {
     const socket = this.get('socketService').socketFor('ws://localhost:8008/');
@@ -15,10 +16,6 @@ export default Ember.Component.extend({
     socket.on('close', this.close, this);
 
     this.set('socket', socket);
-
-    let builder = ProtoBuf.loadJson(KinectBodyData);
-    let KinectOutput = builder.build('KinectBodies');
-    this.set('decoder', KinectOutput);
   },
 
   willDestroyElement() {
@@ -34,8 +31,7 @@ export default Ember.Component.extend({
   },
 
   message(event) {
-    let decoder = this.get('decoder');
-    let result = decoder.decode(event.data);
+    let result = KinectOutput.decode(event.data);
     console.log(`Message: ${result}`);
   },
 
