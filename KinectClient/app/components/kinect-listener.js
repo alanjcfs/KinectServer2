@@ -5,6 +5,7 @@ export default Ember.Component.extend({
 
   socketService: Ember.inject.service('websockets'),
   socket: null,
+  decoder: null,
 
   willRender() {
     const socket = this.get('socketService').socketFor('ws://localhost:8008/');

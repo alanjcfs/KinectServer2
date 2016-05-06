@@ -76,7 +76,7 @@ void KinectServer::process_data() {
         std::string serialized = KinectSerializer::serialize(bodies);
         lock_guard<mutex> guard(connection_lock);
         for (auto it = connections.begin(); it != connections.end(); ++it) {
-            server.send(*it, serialized, websocketpp::frame::opcode::binary);
+            server.send(*it, serialized, websocketpp::frame::opcode::text);
         }
     }
 }
