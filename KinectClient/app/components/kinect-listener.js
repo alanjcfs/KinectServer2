@@ -1,7 +1,14 @@
 import Ember from 'ember';
 import KinectBodyData from 'kinect-client/utils/kinect-body-data';
 
-const KinectOutput = ProtoBuf.loadJson(KinectBodyData).build('KBKinectBodies');
+const KinectOutputBuilder = ProtoBuf.loadJson(KinectBodyData);
+const KinectOutput = KinectOutputBuilder.build('KBKinectBodies');
+
+const toArray = (what) => KinectOutputBuilder.lookup(what).children.sortBy('id').mapBy('name');
+const JointType = toArray('KBJointType');
+const HandState = toArray('KBKinectBody.KBHandState');
+const TrackingState = toArray('KBJoint.KBTrackingState');
+const TrackingConfidence = toArray('KBKinectBody.KBTrackingConfidence');
 
 export default Ember.Component.extend({
 
@@ -19,7 +26,7 @@ export default Ember.Component.extend({
   },
 
   willDestroyElement() {
-    const socket = this.get('socketRef');
+    const socket = this.get('socket');
 
     socket.off('open', this.open);
     socket.off('message', this.message);
@@ -36,7 +43,7 @@ export default Ember.Component.extend({
     fr.onload = (e) => {
       let buffer = new Uint8Array(e.target.result);
       let result = KinectOutput.decode(buffer);
-      console.log(`Message: ${result}`);
+      console.log(result);
     };
     fr.readAsArrayBuffer(blob);
   },
