@@ -16,8 +16,8 @@ App = Ember.Application.extend({
 loadInitializers(App, config.modulePrefix);
 
 // hack to make these global
-window.ByteBuffer = dcodeIO.ByteBuffer;
-window.ProtoBuf = dcodeIO.ProtoBuf;
 window.Long = dcodeIO.Long;
+window.ProtoBuf = dcodeIO.ProtoBuf;
+window.ByteBuffer = dcodeIO.ByteBuffer;
 
 export default App;

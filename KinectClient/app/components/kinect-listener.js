@@ -1,7 +1,7 @@
 import Ember from 'ember';
 import KinectBodyData from 'kinect-client/utils/kinect-body-data';
 
-const KinectOutput = ProtoBuf.loadJson(KinectBodyData).build('KinectBodies');
+const KinectOutput = ProtoBuf.loadJson(KinectBodyData).build('KBKinectBodies');
 
 export default Ember.Component.extend({
 
@@ -31,8 +31,14 @@ export default Ember.Component.extend({
   },
 
   message(event) {
-    let result = KinectOutput.decode(event.data);
-    console.log(`Message: ${result}`);
+    let blob = event.data;
+    let fr = new FileReader();
+    fr.onload = (e) => {
+      let buffer = new Uint8Array(e.target.result);
+      let result = KinectOutput.decode(buffer);
+      console.log(`Message: ${result}`);
+    };
+    fr.readAsArrayBuffer(blob);
   },
 
   close(event) {
