@@ -4,25 +4,30 @@ import KinectBodyData from 'kinect-client/utils/kinect-body-data';
 const KinectOutputBuilder = ProtoBuf.loadJson(KinectBodyData);
 const KinectOutput = KinectOutputBuilder.build('KBKinectBodies');
 
-const toArray = (what) => KinectOutputBuilder.lookup(what).children.sortBy('id').mapBy('name');
-const JointType = toArray('KBJointType');
-const HandState = toArray('KBKinectBody.KBHandState');
-const TrackingState = toArray('KBJoint.KBTrackingState');
-const TrackingConfidence = toArray('KBKinectBody.KBTrackingConfidence');
-
 export default Ember.Component.extend({
 
   socketService: Ember.inject.service('websockets'),
   socket: null,
 
   willRender() {
-    const socket = this.get('socketService').socketFor('ws://localhost:8008/');
+    const socket = this.get('socketService').socketFor('ws://10.0.0.170:8008/');
 
     socket.on('open', this.open, this);
     socket.on('message', this.message, this);
     socket.on('close', this.close, this);
 
     this.set('socket', socket);
+
+    // set up enum lookups
+    const toArray = (what) => KinectOutputBuilder.lookup(what).children.sortBy('id').mapBy('name');
+    const JointType = toArray('KBJointType');
+    const HandState = toArray('KBKinectBody.KBHandState');
+    const TrackingState = toArray('KBJoint.KBTrackingState');
+    const TrackingConfidence = toArray('KBKinectBody.KBTrackingConfidence');
+    this.set('JointType', JointType);
+    this.set('HandState', HandState);
+    this.set('TrackingState', TrackingState);
+    this.set('TrackingConfidence', TrackingConfidence);
   },
 
   willDestroyElement() {
@@ -43,7 +48,7 @@ export default Ember.Component.extend({
     fr.onload = (e) => {
       let buffer = new Uint8Array(e.target.result);
       let result = KinectOutput.decode(buffer);
-      console.log(result);
+      this.set('result', result);
     };
     fr.readAsArrayBuffer(blob);
   },

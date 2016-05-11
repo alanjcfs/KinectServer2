@@ -1,1 +1,55 @@
+<h3>Bodies</h3>
+<div class="bodies">
+    {{#each result.body as |body|}}
+        <div class="body">
+            <h3>Meta</h3>
+            <div class="meta">
+                <span>ID: {{body.id}}</span>
+                <span>Timestamp: {{body.timestamp}}</span>
+            </div>
+
+            <h3>Hands</h3>
+            <div class="hands">
+                <span>
+                    Left Hand:
+                    {{to-enum HandState body.leftHand}}
+                    ({{to-enum TrackingConfidence body.leftHandConfidence}})
+                </span>
+                <span>
+                    Right Hand:
+                    {{to-enum HandState body.rightHand}}
+                    ({{to-enum TrackingConfidence body.leftHandConfidence}})
+                </span>
+            </div>
+
+            <h3>Clip</h3>
+            <div class="clip">
+                <span>Clip: {{to-vector body.clip}}</span>
+            </div>
+
+            <h3>Joints</h3>
+            <div class="joints">
+                {{#each body.joints as |joint|}}
+                    <span>
+                        Joint
+                        {{to-enum JointType joint.type}}:
+                        {{to-vector joint.position}}
+                        ({{to-enum TrackingState joint.state}})
+                    </span>
+                {{/each}}
+            </div>
+
+            <h3>Orientations</h3>
+            <div class="orientations">
+                {{#each body.orientations as |orientation|}}
+                    <span>
+                        Orientation
+                        {{to-enum JointType orientation.type}}:
+                        {{to-vector orientation.orientation}}
+                    </span>
+                {{/each}}
+            </div>
+        </div>
+    {{/each}}
+</div>
 {{yield}}
