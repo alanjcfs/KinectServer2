@@ -44,24 +44,26 @@ void KinectServer::run(uint16_t port) {
 }
 
 void KinectServer::process_users() {
-    unique_lock<mutex> lock(action_lock);
+    while (true) {
+        unique_lock<mutex> lock(action_lock);
 
-    while (actions.empty()) {
-        user_changed.wait(lock);
-    }
+        while (actions.empty()) {
+            user_changed.wait(lock);
+        }
 
-    action new_action = actions.front();
-    actions.pop();
-    lock.unlock();
+        action new_action = actions.front();
+        actions.pop();
+        lock.unlock();
 
-    lock_guard<mutex> guard(connection_lock);
-    switch (new_action.what) {
-    case SUBSCRIBE:
-        connections.insert(new_action.handle);
-        break;
-    case UNSUBSCRIBE:
-        connections.erase(new_action.handle);
-        break;
+        lock_guard<mutex> guard(connection_lock);
+        switch (new_action.what) {
+        case SUBSCRIBE:
+            connections.insert(new_action.handle);
+            break;
+        case UNSUBSCRIBE:
+            connections.erase(new_action.handle);
+            break;
+        }
     }
 }
 
@@ -69,14 +71,19 @@ void KinectServer::process_data() {
     while (device->isRunning()) {
         auto bodies = device->capture();
 
-        if (bodies.empty()) {
+        if (bodies.empty() || connections.empty()) {
             continue;
         }
 
         std::string serialized = KinectSerializer::serialize(bodies);
         lock_guard<mutex> guard(connection_lock);
         for (auto it = connections.begin(); it != connections.end(); ++it) {
-            server.send(*it, (const void *)serialized.c_str(), serialized.length(), websocketpp::frame::opcode::binary);
+            try {
+                server.send(*it, (const void *)serialized.c_str(), serialized.length(), websocketpp::frame::opcode::binary);
+            }
+            catch(websocketpp::exception const &e) {
+                std::cout << "*** Error: " << e.what() << std::endl;
+            }
         }
     }
 }
