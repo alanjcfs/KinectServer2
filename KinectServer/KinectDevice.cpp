@@ -1,4 +1,7 @@
 #include "KinectDevice.h"
+#include <iostream>
+
+struct KinectInitializationFailure : std::exception {};
 
 KinectDevice::KinectDevice():
     sensor(NULL),
@@ -8,8 +11,8 @@ KinectDevice::KinectDevice():
 {
     auto validate = [this](int32_t result) {
         this->isValid = result;
-        if (FAILED(this->isValid)) {
-            throw "Initializing Kinect device failed.";
+        if (this->isValid <= 0) {
+            throw KinectInitializationFailure();
         }
     };
 
