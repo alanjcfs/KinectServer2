@@ -8,7 +8,7 @@ Requires Windows and Visual Studio Community 2015.
 
 ## Kinect 2.0 SDK
 
-Install the Kinect 2.0 SDK. The current version is `v2.0_1409`.
+Install the [Microsoft Kinect 2.0 SDK](https://www.microsoft.com/en-us/download/details.aspx?id=44561) (fetched 2016-05-11). The current version is `v2.0_1409`.
 
 ## Boost
 
@@ -34,18 +34,16 @@ The current version of websocketpp we are using is `0.7.0`.
 
 ## Download [CMake](https://cmake.org/download/)
 
-The MSI is easier as you can elect to add CMake to your PATH. CMake is used to compile the Protocol Buffer.
+Installing via the MSI is easier as you can elect to add CMake to your PATH. CMake is used to compile Protocol Buffers.
 
 ## Protocol Buffers
 
 Install Protocol Buffers: see `https://github.com/google/protobuf/releases` for instructions. The current version of protoc we are using is `3.0.0-beta-2`. Note that we are using `syntax = "proto3"` and the experimental `--js_out` feature.
 
-## Kinect Server SDK
-
-Download the [Microsft Kinect SDK](https://www.microsoft.com/en-us/download/details.aspx?id=44561) (fetched 2016-05-11). You do not need to sign up.
-
 ## Finale
 
 Make sure the include folders are set appropriately for both Boost and websocketpp in `KinectServer/KinectServer.vcxproj`. Modify the additional dependencies field if needed.
 
-Upon compilation, you should see KinectServer.exe in Debug. Launch it. At that moment, you will see a black screen. Rejoice.
+# Playback
+
+A sample playback program is provided. To run it, pass in a `.xef` (eXtended Event File). Please note that you need to pass in *the full path* to the file, otherwise you will get cryptic error messages.
