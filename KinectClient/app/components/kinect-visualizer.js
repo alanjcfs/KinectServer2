@@ -1,25 +1,29 @@
+import Ember from 'ember';
 import PIXI from 'pixi';
 import PixiCanvas from 'ember-cli-pixijs/components/pixi-canvas';
+import KinectVisualizerBody from './kinect-visualizer-body';
 
 export default PixiCanvas.extend({
-
-  shapes: new PIXI.Container(),
-
-  init() {
-    this._super(arguments);
-    let test = new PIXI.Graphics();
-    test.position.x = 50;
-    test.position.y = 60;
-    test.lineStyle(1, 0xdedede);
-    test.drawRect(20, 20, 150, 150);
-    test.beginFill(0xff0000);
-    let shapes = this.get('shapes');
-    shapes.addChild(test);
-  },
+  pixiContainer: new PIXI.Container(),
 
   draw() {
     let renderer = this.get('pixiRenderer');
-    let shapes = this.get('shapes');
-    renderer.render(shapes);
+    let container = this.get('pixiContainer');
+    let bodies = this.get('bodies.body');
+    if (Ember.isEmpty(bodies)) {
+      return;
+    }
+
+    // construct a new body every time. this is woefully inefficient,
+    // but then again, this is only for demo purposes.
+    bodies.forEach(({ id, joints }) => {
+      let body = new KinectVisualizerBody({ id, joints });
+      let child = body.getGraphics();
+      container.addChild(child);
+    });
+
+    renderer.backgroundColor = 0x222222;
+    renderer.render(container);
+    container.removeChildren();
   }
 });
