@@ -2,9 +2,10 @@
 <div class="bodies">
     {{#each bodies.body as |body|}}
         <div class="body">
-            <h3>Meta</h3>
-            <div class="meta">
-                <span>ID: {{body.id}}</span>
+            <h3>Body #{{body.id}}</h3>
+
+            <h3>Time</h3>
+            <div class="time">
                 <span>Timestamp: {{body.timestamp}}</span>
             </div>
 

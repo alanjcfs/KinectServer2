@@ -1,3 +1,22 @@
 span {
     display: flex;
 }
+
+canvas {
+    background-color: grey;
+    width: 100%;
+    height: 600px;
+}
+
+.kinect-listener {
+    display: flex;
+    flex-direction: row;
+}
+
+.kinect-visualizer {
+    display: flex;
+}
+
+.kinect-debugger {
+    padding-left: 2em;
+}

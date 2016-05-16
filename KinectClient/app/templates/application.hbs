@@ -1,8 +1,14 @@
 <h1>Kinect Test</h1>
-<div class="listener">
-    {{#kinect-listener as |bodies|}}
-        {{kinect-visualizer bodies=bodies}}
-        {{kinect-debugger bodies=bodies}}
+<div class="kinect-test">
+    {{#kinect-listener
+       class="kinect-listener"
+       as |bodies|}}
+        {{kinect-visualizer
+          class="kinect-visualizer"
+          bodies=bodies}}
+        {{kinect-debugger
+          class="kinect-debugger"
+          bodies=bodies}}
     {{/kinect-listener}}
 </div>
 

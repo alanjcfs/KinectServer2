@@ -1,12 +1,17 @@
 import Ember from 'ember';
 
 export function toVector([vec]) {
+  let format = (num) => {
+    let n = num || 0.0;
+    return n.toFixed(2);
+  };
+
   if(vec.w) {
     let { x, y, z, w } = vec;
-    return `[${x || 0.0}, ${y || 0.0}, ${z || 0.0} ${w || 0.0}]`;
+    return `[${format(x)}, ${format(y)}, ${format(z)}, ${format(w)}]`;
   }
   let { x, y, z } = vec;
-  return `[${x || 0.0}, ${y || 0.0}, ${z || 0.0}]`;
+  return `[${format(x)}, ${format(y)}, ${format(z)}]`;
 }
 
 export default Ember.Helper.helper(toVector);
