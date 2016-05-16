@@ -19,6 +19,7 @@ export default Ember.Component.extend({
     socket.on('close', this.close, this);
 
     this.set('socket', socket);
+    yield true;
   }).on('init'),
 
   reconnect: task(function* () {
@@ -30,19 +31,6 @@ export default Ember.Component.extend({
     this.set('result', result);
     yield timeout(1000);
   }).drop(),
-
-  willRender() {
-    // set up enum lookups
-    const toArray = (what) => KinectOutputBuilder.lookup(what).children.sortBy('id').mapBy('name');
-    const JointType = toArray('KBJointType');
-    const HandState = toArray('KBKinectBody.KBHandState');
-    const TrackingState = toArray('KBJoint.KBTrackingState');
-    const TrackingConfidence = toArray('KBKinectBody.KBTrackingConfidence');
-    this.set('JointType', JointType);
-    this.set('HandState', HandState);
-    this.set('TrackingState', TrackingState);
-    this.set('TrackingConfidence', TrackingConfidence);
-  },
 
   willDestroyElement() {
     const socket = this.get('socket');
