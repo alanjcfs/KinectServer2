@@ -11,7 +11,7 @@ KinectDevice::KinectDevice():
 {
     auto validate = [this](int32_t result) {
         this->isValid = result;
-        if (this->isValid <= 0) {
+        if (this->isValid < 0) {
             throw KinectInitializationFailure();
         }
     };
