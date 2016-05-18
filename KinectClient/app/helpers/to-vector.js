@@ -6,12 +6,15 @@ export function toVector([vec]) {
     return n.toFixed(2);
   };
 
+  if(!vec.x) {
+    return '[empty]';
+  }
   if(vec.w) {
     let { x, y, z, w } = vec;
     return `[${format(x)}, ${format(y)}, ${format(z)}, ${format(w)}]`;
   }
-  let { x, y, z } = vec;
-  return `[${format(x)}, ${format(y)}, ${format(z)}]`;
+  let { x, y } = vec;
+  return `[${format(x)}, ${format(y)}]`;
 }
 
 export default Ember.Helper.helper(toVector);

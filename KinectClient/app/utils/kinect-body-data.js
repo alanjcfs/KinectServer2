@@ -41,7 +41,7 @@ export default {
         },
         {
           "rule": "optional",
-          "type": "KBCameraSpacePoint",
+          "type": "KBDepthSpacePoint",
           "name": "position",
           "id": 2
         },
@@ -54,7 +54,7 @@ export default {
       ],
       "messages": [
         {
-          "name": "KBCameraSpacePoint",
+          "name": "KBDepthSpacePoint",
           "fields": [
             {
               "rule": "optional",
@@ -67,12 +67,6 @@ export default {
               "type": "float",
               "name": "y",
               "id": 2
-            },
-            {
-              "rule": "optional",
-              "type": "float",
-              "name": "z",
-              "id": 3
             }
           ]
         }

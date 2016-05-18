@@ -13,9 +13,7 @@ export default Ember.Component.extend({
     let jointData = {};
     joints.forEach(({ type, state, position }) => {
       let jointType = jointEnums[type || 0];
-      // TODO this is a hack -- we need to map to a better coordinate system
-      let convert = (coord) => (coord * 300) + 300;
-      jointData[jointType] = { state, x: convert(position.x), y: 450 - convert(position.y) };
+      jointData[jointType] = { state, x: position.x, y: position.y};
     });
     this.set('joints', jointData);
   },
@@ -32,7 +30,7 @@ export default Ember.Component.extend({
     let numerator = Math.sqrt(Math.max(height * height + width * width, 1.0));
     let normalx = - height / numerator;
     let normaly = width / numerator;
-    let scale = 10; // thickness
+    let scale = 8; // thickness
     normalx *= scale;
     normaly *= scale;
 
@@ -56,7 +54,7 @@ export default Ember.Component.extend({
     return new PIXI.Graphics()
       .lineStyle(2, 0xffffff)
       .beginFill(color)
-      .drawCircle(joints.HEAD.x, joints.HEAD.y, 30)
+      .drawCircle(joints.HEAD.x, joints.HEAD.y, 25)
       .endFill();
   },
 
@@ -67,7 +65,7 @@ export default Ember.Component.extend({
     return new PIXI.Graphics()
       .lineStyle(1, 0xffffff)
       .beginFill(color)
-      .drawCircle(x, y, 10)
+      .drawCircle(x, y, 8)
       .endFill();
   },
 
