@@ -4,7 +4,7 @@ import KinectBodyData from 'kinect-client/utils/kinect-body-data';
 
 const KinectOutputBuilder = ProtoBuf.loadJson(KinectBodyData);
 const KinectOutput = KinectOutputBuilder.build('KBKinectBodies');
-const socketAddress = 'ws://10.0.0.170:8008/';
+const socketAddress = 'ws://localhost:8008/';
 
 export default Ember.Component.extend({
 
