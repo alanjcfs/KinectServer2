@@ -37,7 +37,7 @@ void protobuf_ShutdownFile_KinectServer_2fKinectBody_2eproto();
 
 class KBJoint;
 class KBJointOrientation;
-class KBJoint_KBCameraSpacePoint;
+class KBJoint_KBDepthSpacePoint;
 class KBKinectBodies;
 class KBKinectBody;
 class KBVector4;
@@ -254,32 +254,32 @@ class KBVector4 : public ::google::protobuf::Message {
 };
 // -------------------------------------------------------------------
 
-class KBJoint_KBCameraSpacePoint : public ::google::protobuf::Message {
+class KBJoint_KBDepthSpacePoint : public ::google::protobuf::Message {
  public:
-  KBJoint_KBCameraSpacePoint();
-  virtual ~KBJoint_KBCameraSpacePoint();
+  KBJoint_KBDepthSpacePoint();
+  virtual ~KBJoint_KBDepthSpacePoint();
 
-  KBJoint_KBCameraSpacePoint(const KBJoint_KBCameraSpacePoint& from);
+  KBJoint_KBDepthSpacePoint(const KBJoint_KBDepthSpacePoint& from);
 
-  inline KBJoint_KBCameraSpacePoint& operator=(const KBJoint_KBCameraSpacePoint& from) {
+  inline KBJoint_KBDepthSpacePoint& operator=(const KBJoint_KBDepthSpacePoint& from) {
     CopyFrom(from);
     return *this;
   }
 
   static const ::google::protobuf::Descriptor* descriptor();
-  static const KBJoint_KBCameraSpacePoint& default_instance();
+  static const KBJoint_KBDepthSpacePoint& default_instance();
 
-  void Swap(KBJoint_KBCameraSpacePoint* other);
+  void Swap(KBJoint_KBDepthSpacePoint* other);
 
   // implements Message ----------------------------------------------
 
-  inline KBJoint_KBCameraSpacePoint* New() const { return New(NULL); }
+  inline KBJoint_KBDepthSpacePoint* New() const { return New(NULL); }
 
-  KBJoint_KBCameraSpacePoint* New(::google::protobuf::Arena* arena) const;
+  KBJoint_KBDepthSpacePoint* New(::google::protobuf::Arena* arena) const;
   void CopyFrom(const ::google::protobuf::Message& from);
   void MergeFrom(const ::google::protobuf::Message& from);
-  void CopyFrom(const KBJoint_KBCameraSpacePoint& from);
-  void MergeFrom(const KBJoint_KBCameraSpacePoint& from);
+  void CopyFrom(const KBJoint_KBDepthSpacePoint& from);
+  void MergeFrom(const KBJoint_KBDepthSpacePoint& from);
   void Clear();
   bool IsInitialized() const;
 
@@ -294,7 +294,7 @@ class KBJoint_KBCameraSpacePoint : public ::google::protobuf::Message {
   void SharedCtor();
   void SharedDtor();
   void SetCachedSize(int size) const;
-  void InternalSwap(KBJoint_KBCameraSpacePoint* other);
+  void InternalSwap(KBJoint_KBDepthSpacePoint* other);
   private:
   inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
     return _internal_metadata_.arena();
@@ -322,27 +322,20 @@ class KBJoint_KBCameraSpacePoint : public ::google::protobuf::Message {
   float y() const;
   void set_y(float value);
 
-  // optional float z = 3;
-  void clear_z();
-  static const int kZFieldNumber = 3;
-  float z() const;
-  void set_z(float value);
-
-  // @@protoc_insertion_point(class_scope:KBJoint.KBCameraSpacePoint)
+  // @@protoc_insertion_point(class_scope:KBJoint.KBDepthSpacePoint)
  private:
 
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
   bool _is_default_instance_;
   float x_;
   float y_;
-  float z_;
   mutable int _cached_size_;
   friend void  protobuf_AddDesc_KinectServer_2fKinectBody_2eproto();
   friend void protobuf_AssignDesc_KinectServer_2fKinectBody_2eproto();
   friend void protobuf_ShutdownFile_KinectServer_2fKinectBody_2eproto();
 
   void InitAsDefaultInstance();
-  static KBJoint_KBCameraSpacePoint* default_instance_;
+  static KBJoint_KBDepthSpacePoint* default_instance_;
 };
 // -------------------------------------------------------------------
 
@@ -400,7 +393,7 @@ class KBJoint : public ::google::protobuf::Message {
 
   // nested types ----------------------------------------------------
 
-  typedef KBJoint_KBCameraSpacePoint KBCameraSpacePoint;
+  typedef KBJoint_KBDepthSpacePoint KBDepthSpacePoint;
 
   typedef KBJoint_KBTrackingState KBTrackingState;
   static const KBTrackingState NOT_TRACKED = KBJoint_KBTrackingState_NOT_TRACKED;
@@ -435,14 +428,14 @@ class KBJoint : public ::google::protobuf::Message {
   ::KBJointType type() const;
   void set_type(::KBJointType value);
 
-  // optional .KBJoint.KBCameraSpacePoint position = 2;
+  // optional .KBJoint.KBDepthSpacePoint position = 2;
   bool has_position() const;
   void clear_position();
   static const int kPositionFieldNumber = 2;
-  const ::KBJoint_KBCameraSpacePoint& position() const;
-  ::KBJoint_KBCameraSpacePoint* mutable_position();
-  ::KBJoint_KBCameraSpacePoint* release_position();
-  void set_allocated_position(::KBJoint_KBCameraSpacePoint* position);
+  const ::KBJoint_KBDepthSpacePoint& position() const;
+  ::KBJoint_KBDepthSpacePoint* mutable_position();
+  ::KBJoint_KBDepthSpacePoint* release_position();
+  void set_allocated_position(::KBJoint_KBDepthSpacePoint* position);
 
   // optional .KBJoint.KBTrackingState state = 4;
   void clear_state();
@@ -455,7 +448,7 @@ class KBJoint : public ::google::protobuf::Message {
 
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
   bool _is_default_instance_;
-  ::KBJoint_KBCameraSpacePoint* position_;
+  ::KBJoint_KBDepthSpacePoint* position_;
   int type_;
   int state_;
   mutable int _cached_size_;
@@ -904,48 +897,34 @@ inline void KBVector4::set_w(float value) {
 
 // -------------------------------------------------------------------
 
-// KBJoint_KBCameraSpacePoint
+// KBJoint_KBDepthSpacePoint
 
 // optional float x = 1;
-inline void KBJoint_KBCameraSpacePoint::clear_x() {
+inline void KBJoint_KBDepthSpacePoint::clear_x() {
   x_ = 0;
 }
-inline float KBJoint_KBCameraSpacePoint::x() const {
-  // @@protoc_insertion_point(field_get:KBJoint.KBCameraSpacePoint.x)
+inline float KBJoint_KBDepthSpacePoint::x() const {
+  // @@protoc_insertion_point(field_get:KBJoint.KBDepthSpacePoint.x)
   return x_;
 }
-inline void KBJoint_KBCameraSpacePoint::set_x(float value) {
+inline void KBJoint_KBDepthSpacePoint::set_x(float value) {
   
   x_ = value;
-  // @@protoc_insertion_point(field_set:KBJoint.KBCameraSpacePoint.x)
+  // @@protoc_insertion_point(field_set:KBJoint.KBDepthSpacePoint.x)
 }
 
 // optional float y = 2;
-inline void KBJoint_KBCameraSpacePoint::clear_y() {
+inline void KBJoint_KBDepthSpacePoint::clear_y() {
   y_ = 0;
 }
-inline float KBJoint_KBCameraSpacePoint::y() const {
-  // @@protoc_insertion_point(field_get:KBJoint.KBCameraSpacePoint.y)
+inline float KBJoint_KBDepthSpacePoint::y() const {
+  // @@protoc_insertion_point(field_get:KBJoint.KBDepthSpacePoint.y)
   return y_;
 }
-inline void KBJoint_KBCameraSpacePoint::set_y(float value) {
+inline void KBJoint_KBDepthSpacePoint::set_y(float value) {
   
   y_ = value;
-  // @@protoc_insertion_point(field_set:KBJoint.KBCameraSpacePoint.y)
-}
-
-// optional float z = 3;
-inline void KBJoint_KBCameraSpacePoint::clear_z() {
-  z_ = 0;
-}
-inline float KBJoint_KBCameraSpacePoint::z() const {
-  // @@protoc_insertion_point(field_get:KBJoint.KBCameraSpacePoint.z)
-  return z_;
-}
-inline void KBJoint_KBCameraSpacePoint::set_z(float value) {
-  
-  z_ = value;
-  // @@protoc_insertion_point(field_set:KBJoint.KBCameraSpacePoint.z)
+  // @@protoc_insertion_point(field_set:KBJoint.KBDepthSpacePoint.y)
 }
 
 // -------------------------------------------------------------------
@@ -966,7 +945,7 @@ inline void KBJoint::set_type(::KBJointType value) {
   // @@protoc_insertion_point(field_set:KBJoint.type)
 }
 
-// optional .KBJoint.KBCameraSpacePoint position = 2;
+// optional .KBJoint.KBDepthSpacePoint position = 2;
 inline bool KBJoint::has_position() const {
   return !_is_default_instance_ && position_ != NULL;
 }
@@ -974,25 +953,25 @@ inline void KBJoint::clear_position() {
   if (GetArenaNoVirtual() == NULL && position_ != NULL) delete position_;
   position_ = NULL;
 }
-inline const ::KBJoint_KBCameraSpacePoint& KBJoint::position() const {
+inline const ::KBJoint_KBDepthSpacePoint& KBJoint::position() const {
   // @@protoc_insertion_point(field_get:KBJoint.position)
   return position_ != NULL ? *position_ : *default_instance_->position_;
 }
-inline ::KBJoint_KBCameraSpacePoint* KBJoint::mutable_position() {
+inline ::KBJoint_KBDepthSpacePoint* KBJoint::mutable_position() {
   
   if (position_ == NULL) {
-    position_ = new ::KBJoint_KBCameraSpacePoint;
+    position_ = new ::KBJoint_KBDepthSpacePoint;
   }
   // @@protoc_insertion_point(field_mutable:KBJoint.position)
   return position_;
 }
-inline ::KBJoint_KBCameraSpacePoint* KBJoint::release_position() {
+inline ::KBJoint_KBDepthSpacePoint* KBJoint::release_position() {
   
-  ::KBJoint_KBCameraSpacePoint* temp = position_;
+  ::KBJoint_KBDepthSpacePoint* temp = position_;
   position_ = NULL;
   return temp;
 }
-inline void KBJoint::set_allocated_position(::KBJoint_KBCameraSpacePoint* position) {
+inline void KBJoint::set_allocated_position(::KBJoint_KBDepthSpacePoint* position) {
   delete position_;
   position_ = position;
   if (position) {

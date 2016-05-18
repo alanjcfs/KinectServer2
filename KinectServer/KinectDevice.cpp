@@ -6,12 +6,12 @@ struct KinectInitializationFailure : std::exception {};
 KinectDevice::KinectDevice():
     sensor(NULL),
     frameReader(NULL),
+    coordMapper(NULL),
     isValid(false),
-    elapsedTime(-1)
-{
+    elapsedTime(-1) {
     auto validate = [this](int32_t result) {
         this->isValid = result;
-        if (this->isValid < 0) {
+        if (FAILED(this->isValid)) {
             throw KinectInitializationFailure();
         }
     };
@@ -21,12 +21,17 @@ KinectDevice::KinectDevice():
     validate(GetDefaultKinectSensor(&sensor));
     validate(sensor->Open());
     validate(sensor->get_BodyFrameSource(&frameSource));
-    validate(frameSource->OpenReader(&this->frameReader));
+    validate(sensor->get_CoordinateMapper(&coordMapper));
+    validate(frameSource->OpenReader(&frameReader));
     release(frameSource);
 }
 
-KinectDevice::~KinectDevice()
-{
+KinectDevice::~KinectDevice() {
+    if (sensor) {
+        sensor->Close();
+    }
+    release(frameReader);
+    release(coordMapper);
     release(sensor);
 }
 
@@ -81,8 +86,14 @@ KinectBody KinectDevice::processBody(IBody *body, Vector4 clip, int64_t timestam
     body->get_HandLeftConfidence(&kinectBody.leftHandConfidence);
     body->get_HandRightState(&kinectBody.rightHand);
     body->get_HandRightConfidence(&kinectBody.rightHandConfidence);
-    // TODO map to depth space
-    body->GetJoints(JointType_Count, kinectBody.joints);
     body->GetJointOrientations(JointType_Count, kinectBody.orientations);
+    // map joint camera points to depth space
+    Joint joints[JointType_Count];
+    body->GetJoints(JointType_Count, joints);
+    for (int i = 0; i < JointType_Count; i++) {
+        kinectBody.joints[i].jointType = joints[i].JointType;
+        kinectBody.joints[i].trackingState = joints[i].TrackingState;
+        coordMapper->MapCameraPointToDepthSpace(joints[i].Position, &kinectBody.joints[i].position);
+    }
     return kinectBody;
 }

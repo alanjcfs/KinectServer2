@@ -25,13 +25,12 @@ class KinectSerializer {
 
             for (auto i = 0; i < JointType_Count; i++) {
                 KBJoint *joint = shell->add_joints();
-                joint->set_type((KBJointType) body->joints[i].JointType);
-                joint->set_state((KBJoint_KBTrackingState) body->joints[i].TrackingState);
+                joint->set_type((KBJointType) body->joints[i].jointType);
+                joint->set_state((KBJoint_KBTrackingState) body->joints[i].trackingState);
 
                 auto csp = joint->mutable_position();
-                csp->set_x(body->joints[i].Position.X);
-                csp->set_y(body->joints[i].Position.Y);
-                csp->set_z(body->joints[i].Position.Z);
+                csp->set_x(body->joints[i].position.X);
+                csp->set_y(body->joints[i].position.Y);
 
                 KBJointOrientation *orientation = shell->add_orientations();
                 orientation->set_type((KBJointType) body->orientations[i].JointType);

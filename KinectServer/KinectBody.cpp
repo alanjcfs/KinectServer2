@@ -25,9 +25,9 @@ const ::google::protobuf::internal::GeneratedMessageReflection*
 const ::google::protobuf::Descriptor* KBJoint_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
   KBJoint_reflection_ = NULL;
-const ::google::protobuf::Descriptor* KBJoint_KBCameraSpacePoint_descriptor_ = NULL;
+const ::google::protobuf::Descriptor* KBJoint_KBDepthSpacePoint_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
-  KBJoint_KBCameraSpacePoint_reflection_ = NULL;
+  KBJoint_KBDepthSpacePoint_reflection_ = NULL;
 const ::google::protobuf::EnumDescriptor* KBJoint_KBTrackingState_descriptor_ = NULL;
 const ::google::protobuf::Descriptor* KBJointOrientation_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
@@ -86,23 +86,22 @@ void protobuf_AssignDesc_KinectServer_2fKinectBody_2eproto() {
       sizeof(KBJoint),
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(KBJoint, _internal_metadata_),
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(KBJoint, _is_default_instance_));
-  KBJoint_KBCameraSpacePoint_descriptor_ = KBJoint_descriptor_->nested_type(0);
-  static const int KBJoint_KBCameraSpacePoint_offsets_[3] = {
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(KBJoint_KBCameraSpacePoint, x_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(KBJoint_KBCameraSpacePoint, y_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(KBJoint_KBCameraSpacePoint, z_),
+  KBJoint_KBDepthSpacePoint_descriptor_ = KBJoint_descriptor_->nested_type(0);
+  static const int KBJoint_KBDepthSpacePoint_offsets_[2] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(KBJoint_KBDepthSpacePoint, x_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(KBJoint_KBDepthSpacePoint, y_),
   };
-  KBJoint_KBCameraSpacePoint_reflection_ =
+  KBJoint_KBDepthSpacePoint_reflection_ =
     ::google::protobuf::internal::GeneratedMessageReflection::NewGeneratedMessageReflection(
-      KBJoint_KBCameraSpacePoint_descriptor_,
-      KBJoint_KBCameraSpacePoint::default_instance_,
-      KBJoint_KBCameraSpacePoint_offsets_,
+      KBJoint_KBDepthSpacePoint_descriptor_,
+      KBJoint_KBDepthSpacePoint::default_instance_,
+      KBJoint_KBDepthSpacePoint_offsets_,
       -1,
       -1,
       -1,
-      sizeof(KBJoint_KBCameraSpacePoint),
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(KBJoint_KBCameraSpacePoint, _internal_metadata_),
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(KBJoint_KBCameraSpacePoint, _is_default_instance_));
+      sizeof(KBJoint_KBDepthSpacePoint),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(KBJoint_KBDepthSpacePoint, _internal_metadata_),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(KBJoint_KBDepthSpacePoint, _is_default_instance_));
   KBJoint_KBTrackingState_descriptor_ = KBJoint_descriptor_->enum_type(0);
   KBJointOrientation_descriptor_ = file->message_type(2);
   static const int KBJointOrientation_offsets_[2] = {
@@ -178,7 +177,7 @@ void protobuf_RegisterTypes(const ::std::string&) {
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
       KBJoint_descriptor_, &KBJoint::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
-      KBJoint_KBCameraSpacePoint_descriptor_, &KBJoint_KBCameraSpacePoint::default_instance());
+      KBJoint_KBDepthSpacePoint_descriptor_, &KBJoint_KBDepthSpacePoint::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
       KBJointOrientation_descriptor_, &KBJointOrientation::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
@@ -194,8 +193,8 @@ void protobuf_ShutdownFile_KinectServer_2fKinectBody_2eproto() {
   delete KBVector4_reflection_;
   delete KBJoint::default_instance_;
   delete KBJoint_reflection_;
-  delete KBJoint_KBCameraSpacePoint::default_instance_;
-  delete KBJoint_KBCameraSpacePoint_reflection_;
+  delete KBJoint_KBDepthSpacePoint::default_instance_;
+  delete KBJoint_KBDepthSpacePoint_reflection_;
   delete KBJointOrientation::default_instance_;
   delete KBJointOrientation_reflection_;
   delete KBKinectBody::default_instance_;
@@ -213,50 +212,50 @@ void protobuf_AddDesc_KinectServer_2fKinectBody_2eproto() {
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
     "\n\035KinectServer/KinectBody.proto\"7\n\tKBVec"
     "tor4\022\t\n\001x\030\001 \001(\002\022\t\n\001y\030\002 \001(\002\022\t\n\001z\030\003 \001(\002\022\t\n"
-    "\001w\030\004 \001(\002\"\363\001\n\007KBJoint\022\032\n\004type\030\001 \001(\0162\014.KBJ"
-    "ointType\022-\n\010position\030\002 \001(\0132\033.KBJoint.KBC"
-    "ameraSpacePoint\022\'\n\005state\030\004 \001(\0162\030.KBJoint"
-    ".KBTrackingState\0325\n\022KBCameraSpacePoint\022\t"
-    "\n\001x\030\001 \001(\002\022\t\n\001y\030\002 \001(\002\022\t\n\001z\030\003 \001(\002\"=\n\017KBTra"
-    "ckingState\022\017\n\013NOT_TRACKED\020\000\022\014\n\010INFERRED\020"
-    "\001\022\013\n\007TRACKED\020\002\"Q\n\022KBJointOrientation\022\032\n\004"
-    "type\030\001 \001(\0162\014.KBJointType\022\037\n\013orientation\030"
-    "\002 \001(\0132\n.KBVector4\"\341\003\n\014KBKinectBody\022\n\n\002id"
-    "\030\001 \001(\004\022\021\n\ttimestamp\030\002 \001(\003\022+\n\010leftHand\030\003 "
-    "\001(\0162\031.KBKinectBody.KBHandState\022,\n\trightH"
-    "and\030\004 \001(\0162\031.KBKinectBody.KBHandState\022>\n\022"
-    "leftHandConfidence\030\005 \001(\0162\".KBKinectBody."
-    "KBTrackingConfidence\022\?\n\023rightHandConfide"
-    "nce\030\006 \001(\0162\".KBKinectBody.KBTrackingConfi"
-    "dence\022\030\n\004clip\030\007 \001(\0132\n.KBVector4\022\030\n\006joint"
-    "s\030\010 \003(\0132\010.KBJoint\022)\n\014orientations\030\t \003(\0132"
-    "\023.KBJointOrientation\"L\n\013KBHandState\022\013\n\007U"
-    "NKNOWN\020\000\022\017\n\013NOT_TRACKED\020\001\022\010\n\004OPEN\020\002\022\n\n\006C"
-    "LOSED\020\003\022\t\n\005LASSO\020\004\")\n\024KBTrackingConfiden"
-    "ce\022\007\n\003LOW\020\000\022\010\n\004HIGH\020\001\"-\n\016KBKinectBodies\022"
-    "\033\n\004body\030\001 \003(\0132\r.KBKinectBody*\240\003\n\013KBJoint"
-    "Type\022\016\n\nSPINE_BASE\020\000\022\r\n\tSPINE_MID\020\001\022\010\n\004N"
-    "ECK\020\002\022\010\n\004HEAD\020\003\022\021\n\rSHOULDER_LEFT\020\004\022\016\n\nEL"
-    "BOW_LEFT\020\005\022\016\n\nWRIST_LEFT\020\006\022\r\n\tHAND_LEFT\020"
-    "\007\022\022\n\016SHOULDER_RIGHT\020\010\022\017\n\013ELBOW_RIGHT\020\t\022\017"
-    "\n\013WRIST_RIGHT\020\n\022\016\n\nHAND_RIGHT\020\013\022\014\n\010HIP_L"
-    "EFT\020\014\022\r\n\tKNEE_LEFT\020\r\022\016\n\nANKLE_LEFT\020\016\022\r\n\t"
-    "FOOT_LEFT\020\017\022\r\n\tHIP_RIGHT\020\020\022\016\n\nKNEE_RIGHT"
-    "\020\021\022\017\n\013ANKLE_RIGHT\020\022\022\016\n\nFOOT_RIGHT\020\023\022\022\n\016S"
-    "PINE_SHOULDER\020\024\022\021\n\rHAND_TIP_LEFT\020\025\022\016\n\nTH"
-    "UMB_LEFT\020\026\022\022\n\016HAND_TIP_RIGHT\020\027\022\017\n\013THUMB_"
-    "RIGHT\020\030b\006proto3", 1375);
+    "\001w\030\004 \001(\002\"\346\001\n\007KBJoint\022\032\n\004type\030\001 \001(\0162\014.KBJ"
+    "ointType\022,\n\010position\030\002 \001(\0132\032.KBJoint.KBD"
+    "epthSpacePoint\022\'\n\005state\030\004 \001(\0162\030.KBJoint."
+    "KBTrackingState\032)\n\021KBDepthSpacePoint\022\t\n\001"
+    "x\030\001 \001(\002\022\t\n\001y\030\002 \001(\002\"=\n\017KBTrackingState\022\017\n"
+    "\013NOT_TRACKED\020\000\022\014\n\010INFERRED\020\001\022\013\n\007TRACKED\020"
+    "\002\"Q\n\022KBJointOrientation\022\032\n\004type\030\001 \001(\0162\014."
+    "KBJointType\022\037\n\013orientation\030\002 \001(\0132\n.KBVec"
+    "tor4\"\341\003\n\014KBKinectBody\022\n\n\002id\030\001 \001(\004\022\021\n\ttim"
+    "estamp\030\002 \001(\003\022+\n\010leftHand\030\003 \001(\0162\031.KBKinec"
+    "tBody.KBHandState\022,\n\trightHand\030\004 \001(\0162\031.K"
+    "BKinectBody.KBHandState\022>\n\022leftHandConfi"
+    "dence\030\005 \001(\0162\".KBKinectBody.KBTrackingCon"
+    "fidence\022\?\n\023rightHandConfidence\030\006 \001(\0162\".K"
+    "BKinectBody.KBTrackingConfidence\022\030\n\004clip"
+    "\030\007 \001(\0132\n.KBVector4\022\030\n\006joints\030\010 \003(\0132\010.KBJ"
+    "oint\022)\n\014orientations\030\t \003(\0132\023.KBJointOrie"
+    "ntation\"L\n\013KBHandState\022\013\n\007UNKNOWN\020\000\022\017\n\013N"
+    "OT_TRACKED\020\001\022\010\n\004OPEN\020\002\022\n\n\006CLOSED\020\003\022\t\n\005LA"
+    "SSO\020\004\")\n\024KBTrackingConfidence\022\007\n\003LOW\020\000\022\010"
+    "\n\004HIGH\020\001\"-\n\016KBKinectBodies\022\033\n\004body\030\001 \003(\013"
+    "2\r.KBKinectBody*\240\003\n\013KBJointType\022\016\n\nSPINE"
+    "_BASE\020\000\022\r\n\tSPINE_MID\020\001\022\010\n\004NECK\020\002\022\010\n\004HEAD"
+    "\020\003\022\021\n\rSHOULDER_LEFT\020\004\022\016\n\nELBOW_LEFT\020\005\022\016\n"
+    "\nWRIST_LEFT\020\006\022\r\n\tHAND_LEFT\020\007\022\022\n\016SHOULDER"
+    "_RIGHT\020\010\022\017\n\013ELBOW_RIGHT\020\t\022\017\n\013WRIST_RIGHT"
+    "\020\n\022\016\n\nHAND_RIGHT\020\013\022\014\n\010HIP_LEFT\020\014\022\r\n\tKNEE"
+    "_LEFT\020\r\022\016\n\nANKLE_LEFT\020\016\022\r\n\tFOOT_LEFT\020\017\022\r"
+    "\n\tHIP_RIGHT\020\020\022\016\n\nKNEE_RIGHT\020\021\022\017\n\013ANKLE_R"
+    "IGHT\020\022\022\016\n\nFOOT_RIGHT\020\023\022\022\n\016SPINE_SHOULDER"
+    "\020\024\022\021\n\rHAND_TIP_LEFT\020\025\022\016\n\nTHUMB_LEFT\020\026\022\022\n"
+    "\016HAND_TIP_RIGHT\020\027\022\017\n\013THUMB_RIGHT\020\030b\006prot"
+    "o3", 1362);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "KinectServer/KinectBody.proto", &protobuf_RegisterTypes);
   KBVector4::default_instance_ = new KBVector4();
   KBJoint::default_instance_ = new KBJoint();
-  KBJoint_KBCameraSpacePoint::default_instance_ = new KBJoint_KBCameraSpacePoint();
+  KBJoint_KBDepthSpacePoint::default_instance_ = new KBJoint_KBDepthSpacePoint();
   KBJointOrientation::default_instance_ = new KBJointOrientation();
   KBKinectBody::default_instance_ = new KBKinectBody();
   KBKinectBodies::default_instance_ = new KBKinectBodies();
   KBVector4::default_instance_->InitAsDefaultInstance();
   KBJoint::default_instance_->InitAsDefaultInstance();
-  KBJoint_KBCameraSpacePoint::default_instance_->InitAsDefaultInstance();
+  KBJoint_KBDepthSpacePoint::default_instance_->InitAsDefaultInstance();
   KBJointOrientation::default_instance_->InitAsDefaultInstance();
   KBKinectBody::default_instance_->InitAsDefaultInstance();
   KBKinectBodies::default_instance_->InitAsDefaultInstance();
@@ -729,93 +728,91 @@ const KBJoint_KBTrackingState KBJoint::KBTrackingState_MAX;
 const int KBJoint::KBTrackingState_ARRAYSIZE;
 #endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
 #if !defined(_MSC_VER) || _MSC_VER >= 1900
-const int KBJoint_KBCameraSpacePoint::kXFieldNumber;
-const int KBJoint_KBCameraSpacePoint::kYFieldNumber;
-const int KBJoint_KBCameraSpacePoint::kZFieldNumber;
+const int KBJoint_KBDepthSpacePoint::kXFieldNumber;
+const int KBJoint_KBDepthSpacePoint::kYFieldNumber;
 #endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
 
-KBJoint_KBCameraSpacePoint::KBJoint_KBCameraSpacePoint()
+KBJoint_KBDepthSpacePoint::KBJoint_KBDepthSpacePoint()
   : ::google::protobuf::Message(), _internal_metadata_(NULL) {
   SharedCtor();
-  // @@protoc_insertion_point(constructor:KBJoint.KBCameraSpacePoint)
+  // @@protoc_insertion_point(constructor:KBJoint.KBDepthSpacePoint)
 }
 
-void KBJoint_KBCameraSpacePoint::InitAsDefaultInstance() {
+void KBJoint_KBDepthSpacePoint::InitAsDefaultInstance() {
   _is_default_instance_ = true;
 }
 
-KBJoint_KBCameraSpacePoint::KBJoint_KBCameraSpacePoint(const KBJoint_KBCameraSpacePoint& from)
+KBJoint_KBDepthSpacePoint::KBJoint_KBDepthSpacePoint(const KBJoint_KBDepthSpacePoint& from)
   : ::google::protobuf::Message(),
     _internal_metadata_(NULL) {
   SharedCtor();
   MergeFrom(from);
-  // @@protoc_insertion_point(copy_constructor:KBJoint.KBCameraSpacePoint)
+  // @@protoc_insertion_point(copy_constructor:KBJoint.KBDepthSpacePoint)
 }
 
-void KBJoint_KBCameraSpacePoint::SharedCtor() {
+void KBJoint_KBDepthSpacePoint::SharedCtor() {
     _is_default_instance_ = false;
   _cached_size_ = 0;
   x_ = 0;
   y_ = 0;
-  z_ = 0;
 }
 
-KBJoint_KBCameraSpacePoint::~KBJoint_KBCameraSpacePoint() {
-  // @@protoc_insertion_point(destructor:KBJoint.KBCameraSpacePoint)
+KBJoint_KBDepthSpacePoint::~KBJoint_KBDepthSpacePoint() {
+  // @@protoc_insertion_point(destructor:KBJoint.KBDepthSpacePoint)
   SharedDtor();
 }
 
-void KBJoint_KBCameraSpacePoint::SharedDtor() {
+void KBJoint_KBDepthSpacePoint::SharedDtor() {
   if (this != default_instance_) {
   }
 }
 
-void KBJoint_KBCameraSpacePoint::SetCachedSize(int size) const {
+void KBJoint_KBDepthSpacePoint::SetCachedSize(int size) const {
   GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
   _cached_size_ = size;
   GOOGLE_SAFE_CONCURRENT_WRITES_END();
 }
-const ::google::protobuf::Descriptor* KBJoint_KBCameraSpacePoint::descriptor() {
+const ::google::protobuf::Descriptor* KBJoint_KBDepthSpacePoint::descriptor() {
   protobuf_AssignDescriptorsOnce();
-  return KBJoint_KBCameraSpacePoint_descriptor_;
+  return KBJoint_KBDepthSpacePoint_descriptor_;
 }
 
-const KBJoint_KBCameraSpacePoint& KBJoint_KBCameraSpacePoint::default_instance() {
+const KBJoint_KBDepthSpacePoint& KBJoint_KBDepthSpacePoint::default_instance() {
   if (default_instance_ == NULL) protobuf_AddDesc_KinectServer_2fKinectBody_2eproto();
   return *default_instance_;
 }
 
-KBJoint_KBCameraSpacePoint* KBJoint_KBCameraSpacePoint::default_instance_ = NULL;
+KBJoint_KBDepthSpacePoint* KBJoint_KBDepthSpacePoint::default_instance_ = NULL;
 
-KBJoint_KBCameraSpacePoint* KBJoint_KBCameraSpacePoint::New(::google::protobuf::Arena* arena) const {
-  KBJoint_KBCameraSpacePoint* n = new KBJoint_KBCameraSpacePoint;
+KBJoint_KBDepthSpacePoint* KBJoint_KBDepthSpacePoint::New(::google::protobuf::Arena* arena) const {
+  KBJoint_KBDepthSpacePoint* n = new KBJoint_KBDepthSpacePoint;
   if (arena != NULL) {
     arena->Own(n);
   }
   return n;
 }
 
-void KBJoint_KBCameraSpacePoint::Clear() {
+void KBJoint_KBDepthSpacePoint::Clear() {
 #define ZR_HELPER_(f) reinterpret_cast<char*>(\
-  &reinterpret_cast<KBJoint_KBCameraSpacePoint*>(16)->f)
+  &reinterpret_cast<KBJoint_KBDepthSpacePoint*>(16)->f)
 
 #define ZR_(first, last) do {\
   ::memset(&first, 0,\
            ZR_HELPER_(last) - ZR_HELPER_(first) + sizeof(last));\
 } while (0)
 
-  ZR_(x_, z_);
+  ZR_(x_, y_);
 
 #undef ZR_HELPER_
 #undef ZR_
 
 }
 
-bool KBJoint_KBCameraSpacePoint::MergePartialFromCodedStream(
+bool KBJoint_KBDepthSpacePoint::MergePartialFromCodedStream(
     ::google::protobuf::io::CodedInputStream* input) {
 #define DO_(EXPRESSION) if (!(EXPRESSION)) goto failure
   ::google::protobuf::uint32 tag;
-  // @@protoc_insertion_point(parse_start:KBJoint.KBCameraSpacePoint)
+  // @@protoc_insertion_point(parse_start:KBJoint.KBDepthSpacePoint)
   for (;;) {
     ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoff(127);
     tag = p.first;
@@ -846,21 +843,6 @@ bool KBJoint_KBCameraSpacePoint::MergePartialFromCodedStream(
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(29)) goto parse_z;
-        break;
-      }
-
-      // optional float z = 3;
-      case 3: {
-        if (tag == 29) {
-         parse_z:
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   float, ::google::protobuf::internal::WireFormatLite::TYPE_FLOAT>(
-                 input, &z_)));
-
-        } else {
-          goto handle_unusual;
-        }
         if (input->ExpectAtEnd()) goto success;
         break;
       }
@@ -878,17 +860,17 @@ bool KBJoint_KBCameraSpacePoint::MergePartialFromCodedStream(
     }
   }
 success:
-  // @@protoc_insertion_point(parse_success:KBJoint.KBCameraSpacePoint)
+  // @@protoc_insertion_point(parse_success:KBJoint.KBDepthSpacePoint)
   return true;
 failure:
-  // @@protoc_insertion_point(parse_failure:KBJoint.KBCameraSpacePoint)
+  // @@protoc_insertion_point(parse_failure:KBJoint.KBDepthSpacePoint)
   return false;
 #undef DO_
 }
 
-void KBJoint_KBCameraSpacePoint::SerializeWithCachedSizes(
+void KBJoint_KBDepthSpacePoint::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // @@protoc_insertion_point(serialize_start:KBJoint.KBCameraSpacePoint)
+  // @@protoc_insertion_point(serialize_start:KBJoint.KBDepthSpacePoint)
   // optional float x = 1;
   if (this->x() != 0) {
     ::google::protobuf::internal::WireFormatLite::WriteFloat(1, this->x(), output);
@@ -899,17 +881,12 @@ void KBJoint_KBCameraSpacePoint::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteFloat(2, this->y(), output);
   }
 
-  // optional float z = 3;
-  if (this->z() != 0) {
-    ::google::protobuf::internal::WireFormatLite::WriteFloat(3, this->z(), output);
-  }
-
-  // @@protoc_insertion_point(serialize_end:KBJoint.KBCameraSpacePoint)
+  // @@protoc_insertion_point(serialize_end:KBJoint.KBDepthSpacePoint)
 }
 
-::google::protobuf::uint8* KBJoint_KBCameraSpacePoint::SerializeWithCachedSizesToArray(
+::google::protobuf::uint8* KBJoint_KBDepthSpacePoint::SerializeWithCachedSizesToArray(
     ::google::protobuf::uint8* target) const {
-  // @@protoc_insertion_point(serialize_to_array_start:KBJoint.KBCameraSpacePoint)
+  // @@protoc_insertion_point(serialize_to_array_start:KBJoint.KBDepthSpacePoint)
   // optional float x = 1;
   if (this->x() != 0) {
     target = ::google::protobuf::internal::WireFormatLite::WriteFloatToArray(1, this->x(), target);
@@ -920,16 +897,11 @@ void KBJoint_KBCameraSpacePoint::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteFloatToArray(2, this->y(), target);
   }
 
-  // optional float z = 3;
-  if (this->z() != 0) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteFloatToArray(3, this->z(), target);
-  }
-
-  // @@protoc_insertion_point(serialize_to_array_end:KBJoint.KBCameraSpacePoint)
+  // @@protoc_insertion_point(serialize_to_array_end:KBJoint.KBDepthSpacePoint)
   return target;
 }
 
-int KBJoint_KBCameraSpacePoint::ByteSize() const {
+int KBJoint_KBDepthSpacePoint::ByteSize() const {
   int total_size = 0;
 
   // optional float x = 1;
@@ -942,21 +914,16 @@ int KBJoint_KBCameraSpacePoint::ByteSize() const {
     total_size += 1 + 4;
   }
 
-  // optional float z = 3;
-  if (this->z() != 0) {
-    total_size += 1 + 4;
-  }
-
   GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
   _cached_size_ = total_size;
   GOOGLE_SAFE_CONCURRENT_WRITES_END();
   return total_size;
 }
 
-void KBJoint_KBCameraSpacePoint::MergeFrom(const ::google::protobuf::Message& from) {
+void KBJoint_KBDepthSpacePoint::MergeFrom(const ::google::protobuf::Message& from) {
   if (GOOGLE_PREDICT_FALSE(&from == this)) MergeFromFail(__LINE__);
-  const KBJoint_KBCameraSpacePoint* source = 
-      ::google::protobuf::internal::DynamicCastToGenerated<const KBJoint_KBCameraSpacePoint>(
+  const KBJoint_KBDepthSpacePoint* source = 
+      ::google::protobuf::internal::DynamicCastToGenerated<const KBJoint_KBDepthSpacePoint>(
           &from);
   if (source == NULL) {
     ::google::protobuf::internal::ReflectionOps::Merge(from, this);
@@ -965,7 +932,7 @@ void KBJoint_KBCameraSpacePoint::MergeFrom(const ::google::protobuf::Message& fr
   }
 }
 
-void KBJoint_KBCameraSpacePoint::MergeFrom(const KBJoint_KBCameraSpacePoint& from) {
+void KBJoint_KBDepthSpacePoint::MergeFrom(const KBJoint_KBDepthSpacePoint& from) {
   if (GOOGLE_PREDICT_FALSE(&from == this)) MergeFromFail(__LINE__);
   if (from.x() != 0) {
     set_x(from.x());
@@ -973,45 +940,41 @@ void KBJoint_KBCameraSpacePoint::MergeFrom(const KBJoint_KBCameraSpacePoint& fro
   if (from.y() != 0) {
     set_y(from.y());
   }
-  if (from.z() != 0) {
-    set_z(from.z());
-  }
 }
 
-void KBJoint_KBCameraSpacePoint::CopyFrom(const ::google::protobuf::Message& from) {
+void KBJoint_KBDepthSpacePoint::CopyFrom(const ::google::protobuf::Message& from) {
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-void KBJoint_KBCameraSpacePoint::CopyFrom(const KBJoint_KBCameraSpacePoint& from) {
+void KBJoint_KBDepthSpacePoint::CopyFrom(const KBJoint_KBDepthSpacePoint& from) {
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-bool KBJoint_KBCameraSpacePoint::IsInitialized() const {
+bool KBJoint_KBDepthSpacePoint::IsInitialized() const {
 
   return true;
 }
 
-void KBJoint_KBCameraSpacePoint::Swap(KBJoint_KBCameraSpacePoint* other) {
+void KBJoint_KBDepthSpacePoint::Swap(KBJoint_KBDepthSpacePoint* other) {
   if (other == this) return;
   InternalSwap(other);
 }
-void KBJoint_KBCameraSpacePoint::InternalSwap(KBJoint_KBCameraSpacePoint* other) {
+void KBJoint_KBDepthSpacePoint::InternalSwap(KBJoint_KBDepthSpacePoint* other) {
   std::swap(x_, other->x_);
   std::swap(y_, other->y_);
-  std::swap(z_, other->z_);
   _internal_metadata_.Swap(&other->_internal_metadata_);
   std::swap(_cached_size_, other->_cached_size_);
 }
 
-::google::protobuf::Metadata KBJoint_KBCameraSpacePoint::GetMetadata() const {
+::google::protobuf::Metadata KBJoint_KBDepthSpacePoint::GetMetadata() const {
   protobuf_AssignDescriptorsOnce();
   ::google::protobuf::Metadata metadata;
-  metadata.descriptor = KBJoint_KBCameraSpacePoint_descriptor_;
-  metadata.reflection = KBJoint_KBCameraSpacePoint_reflection_;
+  metadata.descriptor = KBJoint_KBDepthSpacePoint_descriptor_;
+  metadata.reflection = KBJoint_KBDepthSpacePoint_reflection_;
   return metadata;
 }
 
@@ -1032,7 +995,7 @@ KBJoint::KBJoint()
 
 void KBJoint::InitAsDefaultInstance() {
   _is_default_instance_ = true;
-  position_ = const_cast< ::KBJoint_KBCameraSpacePoint*>(&::KBJoint_KBCameraSpacePoint::default_instance());
+  position_ = const_cast< ::KBJoint_KBDepthSpacePoint*>(&::KBJoint_KBDepthSpacePoint::default_instance());
 }
 
 KBJoint::KBJoint(const KBJoint& from)
@@ -1130,7 +1093,7 @@ bool KBJoint::MergePartialFromCodedStream(
         break;
       }
 
-      // optional .KBJoint.KBCameraSpacePoint position = 2;
+      // optional .KBJoint.KBDepthSpacePoint position = 2;
       case 2: {
         if (tag == 18) {
          parse_position:
@@ -1189,7 +1152,7 @@ void KBJoint::SerializeWithCachedSizes(
       1, this->type(), output);
   }
 
-  // optional .KBJoint.KBCameraSpacePoint position = 2;
+  // optional .KBJoint.KBDepthSpacePoint position = 2;
   if (this->has_position()) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
       2, *this->position_, output);
@@ -1213,7 +1176,7 @@ void KBJoint::SerializeWithCachedSizes(
       1, this->type(), target);
   }
 
-  // optional .KBJoint.KBCameraSpacePoint position = 2;
+  // optional .KBJoint.KBDepthSpacePoint position = 2;
   if (this->has_position()) {
     target = ::google::protobuf::internal::WireFormatLite::
       WriteMessageNoVirtualToArray(
@@ -1239,7 +1202,7 @@ int KBJoint::ByteSize() const {
       ::google::protobuf::internal::WireFormatLite::EnumSize(this->type());
   }
 
-  // optional .KBJoint.KBCameraSpacePoint position = 2;
+  // optional .KBJoint.KBDepthSpacePoint position = 2;
   if (this->has_position()) {
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
@@ -1276,7 +1239,7 @@ void KBJoint::MergeFrom(const KBJoint& from) {
     set_type(from.type());
   }
   if (from.has_position()) {
-    mutable_position()->::KBJoint_KBCameraSpacePoint::MergeFrom(from.position());
+    mutable_position()->::KBJoint_KBDepthSpacePoint::MergeFrom(from.position());
   }
   if (from.state() != 0) {
     set_state(from.state());
@@ -1321,48 +1284,34 @@ void KBJoint::InternalSwap(KBJoint* other) {
 }
 
 #if PROTOBUF_INLINE_NOT_IN_HEADERS
-// KBJoint_KBCameraSpacePoint
+// KBJoint_KBDepthSpacePoint
 
 // optional float x = 1;
-void KBJoint_KBCameraSpacePoint::clear_x() {
+void KBJoint_KBDepthSpacePoint::clear_x() {
   x_ = 0;
 }
- float KBJoint_KBCameraSpacePoint::x() const {
-  // @@protoc_insertion_point(field_get:KBJoint.KBCameraSpacePoint.x)
+ float KBJoint_KBDepthSpacePoint::x() const {
+  // @@protoc_insertion_point(field_get:KBJoint.KBDepthSpacePoint.x)
   return x_;
 }
- void KBJoint_KBCameraSpacePoint::set_x(float value) {
+ void KBJoint_KBDepthSpacePoint::set_x(float value) {
   
   x_ = value;
-  // @@protoc_insertion_point(field_set:KBJoint.KBCameraSpacePoint.x)
+  // @@protoc_insertion_point(field_set:KBJoint.KBDepthSpacePoint.x)
 }
 
 // optional float y = 2;
-void KBJoint_KBCameraSpacePoint::clear_y() {
+void KBJoint_KBDepthSpacePoint::clear_y() {
   y_ = 0;
 }
- float KBJoint_KBCameraSpacePoint::y() const {
-  // @@protoc_insertion_point(field_get:KBJoint.KBCameraSpacePoint.y)
+ float KBJoint_KBDepthSpacePoint::y() const {
+  // @@protoc_insertion_point(field_get:KBJoint.KBDepthSpacePoint.y)
   return y_;
 }
- void KBJoint_KBCameraSpacePoint::set_y(float value) {
+ void KBJoint_KBDepthSpacePoint::set_y(float value) {
   
   y_ = value;
-  // @@protoc_insertion_point(field_set:KBJoint.KBCameraSpacePoint.y)
-}
-
-// optional float z = 3;
-void KBJoint_KBCameraSpacePoint::clear_z() {
-  z_ = 0;
-}
- float KBJoint_KBCameraSpacePoint::z() const {
-  // @@protoc_insertion_point(field_get:KBJoint.KBCameraSpacePoint.z)
-  return z_;
-}
- void KBJoint_KBCameraSpacePoint::set_z(float value) {
-  
-  z_ = value;
-  // @@protoc_insertion_point(field_set:KBJoint.KBCameraSpacePoint.z)
+  // @@protoc_insertion_point(field_set:KBJoint.KBDepthSpacePoint.y)
 }
 
 // -------------------------------------------------------------------
@@ -1383,7 +1332,7 @@ void KBJoint::clear_type() {
   // @@protoc_insertion_point(field_set:KBJoint.type)
 }
 
-// optional .KBJoint.KBCameraSpacePoint position = 2;
+// optional .KBJoint.KBDepthSpacePoint position = 2;
 bool KBJoint::has_position() const {
   return !_is_default_instance_ && position_ != NULL;
 }
@@ -1391,25 +1340,25 @@ void KBJoint::clear_position() {
   if (GetArenaNoVirtual() == NULL && position_ != NULL) delete position_;
   position_ = NULL;
 }
-const ::KBJoint_KBCameraSpacePoint& KBJoint::position() const {
+const ::KBJoint_KBDepthSpacePoint& KBJoint::position() const {
   // @@protoc_insertion_point(field_get:KBJoint.position)
   return position_ != NULL ? *position_ : *default_instance_->position_;
 }
-::KBJoint_KBCameraSpacePoint* KBJoint::mutable_position() {
+::KBJoint_KBDepthSpacePoint* KBJoint::mutable_position() {
   
   if (position_ == NULL) {
-    position_ = new ::KBJoint_KBCameraSpacePoint;
+    position_ = new ::KBJoint_KBDepthSpacePoint;
   }
   // @@protoc_insertion_point(field_mutable:KBJoint.position)
   return position_;
 }
-::KBJoint_KBCameraSpacePoint* KBJoint::release_position() {
+::KBJoint_KBDepthSpacePoint* KBJoint::release_position() {
   
-  ::KBJoint_KBCameraSpacePoint* temp = position_;
+  ::KBJoint_KBDepthSpacePoint* temp = position_;
   position_ = NULL;
   return temp;
 }
-void KBJoint::set_allocated_position(::KBJoint_KBCameraSpacePoint* position) {
+void KBJoint::set_allocated_position(::KBJoint_KBDepthSpacePoint* position) {
   delete position_;
   position_ = position;
   if (position) {

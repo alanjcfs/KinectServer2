@@ -5,27 +5,33 @@
 #include "KinectBody.h"
 
 typedef struct {
+    JointType jointType;
+    DepthSpacePoint position;
+    TrackingState trackingState;
+} KinectJoint;
+
+typedef struct {
     uint64_t id;
     int64_t timestamp;
     HandState leftHand, rightHand;
     TrackingConfidence leftHandConfidence, rightHandConfidence;
     Vector4 clip;
-    Joint joints[JointType_Count];
+    KinectJoint joints[JointType_Count];
     JointOrientation orientations[JointType_Count];
 } KinectBody;
 
-class KinectDevice
-{
-public:
+class KinectDevice {
+ public:
     KinectDevice();
     ~KinectDevice();
 
     bool isRunning();
     std::vector<KinectBody> capture();
-private:
+ private:
     KinectBody processBody(IBody *, Vector4, int64_t);
     IKinectSensor *sensor;
     IBodyFrameReader *frameReader;
+    ICoordinateMapper *coordMapper;
     int32_t isValid;
     int64_t elapsedTime;
 };

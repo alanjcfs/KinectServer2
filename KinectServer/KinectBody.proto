@@ -38,12 +38,11 @@ message KBVector4 {
 message KBJoint {
     KBJointType type = 1;
 
-    message KBCameraSpacePoint {
+    message KBDepthSpacePoint {
         float x = 1;
         float y = 2;
-        float z = 3;
     }
-    KBCameraSpacePoint position = 2;
+    KBDepthSpacePoint position = 2;
 
     enum KBTrackingState {
         NOT_TRACKED = 0;
