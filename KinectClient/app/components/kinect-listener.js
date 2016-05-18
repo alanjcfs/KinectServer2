@@ -29,7 +29,7 @@ export default Ember.Component.extend({
 
   updateData: task(function* (result) {
     this.set('result', result);
-    yield timeout(1000);
+    yield timeout(33);
   }).drop(),
 
   willDestroyElement() {
