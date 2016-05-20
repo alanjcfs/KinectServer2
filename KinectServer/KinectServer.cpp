@@ -5,6 +5,8 @@ using websocketpp::lib::bind;
 using websocketpp::lib::placeholders::_1;
 using websocketpp::lib::placeholders::_2;
 
+#define WAIT_TIME 8u
+
 KinectServer::KinectServer()
 {
     device = new KinectDevice();
@@ -72,6 +74,7 @@ void KinectServer::process_data() {
         auto bodies = device->capture();
 
         if (bodies.empty() || connections.empty()) {
+            std::this_thread::sleep_for(std::chrono::milliseconds(WAIT_TIME));
             continue;
         }
 
